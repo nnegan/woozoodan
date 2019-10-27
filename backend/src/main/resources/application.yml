@@ -1,0 +1,8 @@
+server:
+  port: 9901
+  servlet:
+    context-path: /backend
+    tomcat:
+      uri-encoding: UTF-8
+    max-http-header-size: 65536
+
