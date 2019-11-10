@@ -1,4 +1,4 @@
-package com.parking.backend.common.interceptor;
+package com.wzd.common.interceptor;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;

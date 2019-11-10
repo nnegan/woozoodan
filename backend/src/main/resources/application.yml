@@ -1,8 +1,27 @@
 server:
-  port: 9901
-  servlet:
-    context-path: /backend
-    tomcat:
-      uri-encoding: UTF-8
-    max-http-header-size: 65536
+  port: 18080
+  ##servlet:
+    ##context-path: /backend
 
+spring:
+  profiles:
+    active:
+  h2:
+    console:
+      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
+      path: /h2_db
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: sa
+    password: 1234
+    schema: classpath:/scheme.sql
+
+ ## mybatis.config-location=classpath:mybatis-config.xml
+ ## mybatis.mapper-locations=classpath:mappers/*.xm
+
+mybatis:
+  config-location: classpath:mapper/mybatis-config.xml
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+##  config: classpath:mapper/mybatis-config.xml
+##  mapper: classpath:mapper/**/*Mapper.xml

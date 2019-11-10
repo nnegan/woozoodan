@@ -44,7 +44,7 @@
 
 	<!-- Application Loggers -->
 	<!-- 여기서 name 값은 프로젝트 package 명입니다. -->
-	<logger name="com.parking" level="DEBUG" additivity="false">
+	<logger name="com.wzd" level="DEBUG" additivity="false">
 		<appender-ref ref="stdout" />
 		<appender-ref ref="file" />
 	</logger>
