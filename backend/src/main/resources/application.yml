@@ -1,21 +1,27 @@
 server:
   port: 18080
-  ##servlet:
-    ##context-path: /backend
+  servlet:
+    context-path: /backend
 
 spring:
   profiles:
-    active:
-  h2:
-    console:
-      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
-      path: /h2_db
+    active: local
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test_db?serverTimezone=UTC&characterEncoding=UTF-8
     username: sa
-    password: 1234
-    schema: classpath:/scheme.sql
+    password: password
+
+  ##h2:
+  ##  console:
+  ##    enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
+  ##    path: /h2_db
+  ##datasource:
+  ##  driver-class-name: org.h2.Driver
+  ##  url: jdbc:h2:mem:test
+  ##  username: sa
+  ##  password: 1234
+  ##  schema: classpath:/scheme.sql
 
  ## mybatis.config-location=classpath:mybatis-config.xml
  ## mybatis.mapper-locations=classpath:mappers/*.xm

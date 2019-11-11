@@ -10,7 +10,7 @@ public class WzdBackendApplication {
     public static void main(String[] args) {
 
       //  String profile = "local";
-       // System.setProperty("spring.profiles.active", profile);
+        System.setProperty("spring.profiles.active", "h2");
         SpringApplication.run(WzdBackendApplication.class, args);
     }
 
