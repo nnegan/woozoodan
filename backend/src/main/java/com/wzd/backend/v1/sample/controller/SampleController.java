@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/v1/sample")
-@Api(description = "샘플 코")
+@Api(description = "샘플 코드")
 public class SampleController {
 
     @Autowired
