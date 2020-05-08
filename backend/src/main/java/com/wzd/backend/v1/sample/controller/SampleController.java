@@ -3,6 +3,7 @@ package com.wzd.backend.v1.sample.controller;
 import com.wzd.common.model.CommonDataModel;
 import com.wzd.backend.v1.sample.model.SampleModel;
 import com.wzd.backend.v1.sample.service.SampleService;
+import com.wzd.common.redis.RedisManager;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -43,4 +46,27 @@ public class SampleController {
         
         return resMap;
     }
+
+
+    /// REDIS 샘플
+    @Autowired
+    private RedisManager redisManager;
+
+    @GetMapping("/setredis/{value}")
+    public CommonDataModel<String>  setredis(@PathVariable String value){
+        redisManager.put("test", value, 10, TimeUnit.MINUTES);
+        return new CommonDataModel<String>("SUCCESS");
+    }
+
+    @GetMapping("/getredis")
+    public CommonDataModel<String>  getredis(){
+        return new CommonDataModel<String>((String)redisManager.getValue("test"));
+    }
+
+    @GetMapping("/delredis")
+    public CommonDataModel<String>  delredis(){
+        redisManager.delete("test");
+        return new CommonDataModel<String>("SUCCESS");
+    }
 }
+
