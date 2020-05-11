@@ -68,6 +68,12 @@ spring:
       validation-query-timeout: 3
       validation-interval: 3000
 
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: username
+    password: password
+
  # datasource:
  #   driver-class-name: com.mysql.cj.jdbc.Driver
  #   url: jdbc:mysql://localhost:3306/test_db?serverTimezone=UTC&characterEncoding=UTF-8

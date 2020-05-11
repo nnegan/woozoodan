@@ -30,21 +30,9 @@ import redis.clients.jedis.JedisPoolConfig;
 @Profile({ "local" })
 public class RedisObjectConfig {
 
-//	@Value("${spring.redis.object.max-pooling:100}")
-//	private int maxPooling;
-//
-//	@Value("${spring.redis.object.min-pooling:20}")
-//	private int minPooling;
 
 	@Autowired
 	protected RedisObjectProperties redisObjectProperties;
-
-/*	@Bean(name="objectPropertySourcesPlaceholderConfigurer")
-	@Profile("awsredis")
-	@Qualifier("objectPropertySourcesPlaceholderConfigurer")
-	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-		return new PropertySourcesPlaceholderConfigurer();
-	}*/
 
 	/**
 	 * Redis 연결용 Connection Pooling 설정.

@@ -16,7 +16,7 @@ public class WzdBackendApplication {
     public static void main(String[] args) {
 
       //  String profile = "local";
-        System.setProperty("spring.profiles.active", "local,mysql");
+        System.setProperty("spring.profiles.active", "local,mysql,mq");
         SpringApplication.run(WzdBackendApplication.class, args);
 
     }
