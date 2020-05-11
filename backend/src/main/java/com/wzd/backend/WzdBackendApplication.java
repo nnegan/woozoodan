@@ -9,15 +9,14 @@ import org.springframework.context.annotation.ComponentScan;
 
 @Slf4j
 @SpringBootApplication (exclude = { RedisAutoConfiguration.class, RedisRepositoriesAutoConfiguration.class })
-@ComponentScan(
-        basePackages = {"com.wzd"})
+@ComponentScan(basePackages = {"com.wzd"})
 public class WzdBackendApplication {
 
 
     public static void main(String[] args) {
 
       //  String profile = "local";
-        System.setProperty("spring.profiles.active", "local");
+        System.setProperty("spring.profiles.active", "local,mysql");
         SpringApplication.run(WzdBackendApplication.class, args);
 
     }

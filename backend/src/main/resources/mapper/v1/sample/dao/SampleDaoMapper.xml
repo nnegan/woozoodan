@@ -9,4 +9,42 @@
         where   user_id = #{userId}
     </select>
 
+    <select id="selectSampleuserList" resultType="com.wzd.backend.v1.sample.model.SampleModel" parameterType="com.wzd.backend.v1.sample.model.SampleSearchModel">
+        select  user_no as userNo
+                , user_id as userId
+                , mobile_no as mobileNo
+                ,   created_at  as createdAt
+                ,   modified_at as modifiedAt
+        from SAMPLE_TABLE
+        where 1 = 1
+        <if test="startIndex !=null and rowsPerPage != null">
+            LIMIT #{startIndex}, #{rowsPerPage}
+        </if>
+    </select>
+
+    <insert id="insertUser" parameterType="com.wzd.backend.v1.sample.model.SampleModel" >
+        INSERT INTO SAMPLE_TABLE (user_no, user_id, mobile_no, created_at, modified_at) VALUES
+        (   #{userNo}
+        ,   #{userId}
+        ,   #{mobileNo}
+        ,   now()
+        ,   now()
+        )
+    </insert>
+
+    <update id="updateUser" parameterType="com.wzd.backend.v1.sample.model.SampleModel" >
+        update SAMPLE_TABLE
+        set     user_id = #{userId}
+            ,   mobile_no = #{mobileNo}
+            ,   modified_at =  now()
+        where   user_no = #{userNo}
+    </update>
+
+    <delete id="deleteUser" parameterType="String" >
+        delete  SAMPLE_TABLE
+        where   user_no = #{userNo}
+    </delete>
+
+
+
 </mapper>

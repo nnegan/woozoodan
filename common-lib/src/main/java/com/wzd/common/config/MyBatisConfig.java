@@ -16,7 +16,7 @@ import java.io.IOException;
 //@MapperScan(basePackages = "com.wzd.**.dao.*")
 public class MyBatisConfig {
 
-  /*  @Autowired
+   /* @Autowired
     private ApplicationContext applicationContext;
 
     @Bean

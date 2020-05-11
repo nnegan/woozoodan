@@ -13,15 +13,6 @@ spring:
     timeout: 50
   profiles:
     active: local
- # datasource:
- #   driver-class-name: com.mysql.cj.jdbc.Driver
- #   url: jdbc:mysql://localhost:3306/test_db?serverTimezone=UTC&characterEncoding=UTF-8
- #   username: sa
- #   password: password
- # redis:
- #   host: localhost
- #   port: 12379
-
 
   h2:
     console:
@@ -34,15 +25,70 @@ spring:
     password: 1234
     schema: classpath:/scheme.sql
 
+  messages:
+    #    always-use-message-format: false # Set whether to always apply the MessageFormat rules, parsing even messages without arguments.
+    #    cache-duration: # Loaded resource bundle files cache duration. When not set, bundles are cached forever. If a duration suffix is not specified, seconds will be used.
+    basename: i18n/server-global-messages,i18n/server-messages,i18n/validation-messages,i18n/excelheader-messages
+    encoding: UTF-8 # Message bundles encoding.
+    fallback-to-system-locale: false
+
+  multi-datasource:
+    readonly:
+      driverClassName: org.h2.Driver
+      url: jdbc:h2:mem:test
+      username: sa
+      password: 1234
+      initial-size: 1
+      max-active: 20
+      min-idle: 1
+      max-idle: 20
+      max-wait: 30000
+      test-on-borrow: true
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 30000
+      validation-query: 'SELECT 1'
+      validation-query-timeout: 3
+      validation-interval: 3000
+    readwrite:
+      driverClassName: org.h2.Driver
+      url: jdbc:h2:mem:test
+      username: sa
+      password: 1234
+      initial-size: 1
+      max-active: 20
+      min-idle: 1
+      max-idle: 20
+      max-wait: 30000
+      test-on-borrow: true
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 30000
+      validation-query: 'SELECT 1'
+      validation-query-timeout: 3
+      validation-interval: 3000
+
+ # datasource:
+ #   driver-class-name: com.mysql.cj.jdbc.Driver
+ #   url: jdbc:mysql://localhost:3306/test_db?serverTimezone=UTC&characterEncoding=UTF-8
+ #   username: sa
+ #   password: password
+ # redis:
+ #   host: localhost
+ #   port: 12379
+
+
+
+
 
  ## mybatis.config-location=classpath:mybatis-config.xml
  ## mybatis.mapper-locations=classpath:mappers/*.xm
 
 
 
-mybatis:
-  config-location: classpath:mapper/mybatis-config.xml
-  mapper-locations: classpath:mapper/**/*Mapper.xml
+#mybatis:
+#  config-location: classpath:mapper/mybatis-config.xml
+#  mapper-locations: classpath:mapper/**/*Mapper.xml
 ##  config: classpath:mapper/mybatis-config.xml
 ##  mapper: classpath:mapper/**/*Mapper.xml
 

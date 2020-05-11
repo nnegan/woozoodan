@@ -1,5 +1,6 @@
 package com.wzd.backend.v1.sample.model;
 
+import com.wzd.common.model.AbstractPagenateSearchModel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -7,9 +8,9 @@ import org.apache.ibatis.type.Alias;
 
 @Data
 @SuppressWarnings("serial")
-@Alias("SampleModel")
+@Alias("SampleSearchModel")
 @ApiModel(description =  "Sample 모델")
-public class SampleModel {
+public class SampleSearchModel extends AbstractPagenateSearchModel {
 
     @ApiModelProperty( value = "사용자 아이디")
     private String userId;

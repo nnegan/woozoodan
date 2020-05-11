@@ -3,30 +3,27 @@ package com.wzd.common.model;
 import java.io.Serializable;
 
 public abstract class AbstractPagenateSearchModel implements Serializable {
-  /*  protected Integer page;
-    protected Integer pageSize;
+    protected Integer 	pageNo;
+    protected Integer 	rowsPerPage;
 
-    public AbstractPagenateSearchModel() {
+    public Integer getPageNo() {
+        return pageNo;
     }
-
-    public Integer getPage() {
-        return this.page;
+    public void setPageNo(Integer pageNo) {
+        this.pageNo = pageNo;
     }
-
-    public void setPage(Integer page) {
-        this.page = page;
+    public Integer getRowsPerPage() {
+        return rowsPerPage;
     }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    public void setRowsPerPage(Integer rowsPerPage) {
+        this.rowsPerPage = rowsPerPage;
     }
 
     public Long getStartIndex() {
-        return this.page != null && this.pageSize != null ? ((long)this.page - 1L) * (long)this.pageSize : null;
-    }*/
+        if (this.pageNo == null || this.rowsPerPage == null) {
+            return null;
+        }
+        return Long.valueOf(((long)this.pageNo-1) * this.rowsPerPage);
+    }
 }
 
