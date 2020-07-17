@@ -74,6 +74,11 @@ spring:
     username: username
     password: password
 
+  # JSP설정
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
  # datasource:
  #   driver-class-name: com.mysql.cj.jdbc.Driver
  #   url: jdbc:mysql://localhost:3306/test_db?serverTimezone=UTC&characterEncoding=UTF-8
