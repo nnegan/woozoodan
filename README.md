@@ -1,4 +1,4 @@
-# woozoodan
+# woozoodan (2020년 Toy Project)
 
 ###필수 설치 프로그램
 1. lombok (인텔리J는 기본제공) -> set/get 자동생성
